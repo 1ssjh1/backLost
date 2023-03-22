@@ -1,0 +1,86 @@
+.Container {
+  position: relative;
+  .none{
+    display: none;
+  }
+  .canvasContainer{
+    position: absolute;
+    top: -50px;
+    left: 200px;
+    // position: relative;
+    z-index: 100;
+    // bottom: 800px;
+    .closeIcon{
+      position: absolute;
+      // left: 880px;
+      right: -8px;
+      top: -10px;
+      color: #ccc;
+      font-size: large;
+      // bottom: 50px;
+    }
+  }
+  
+  
+  
+  .Pagination{ 
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+  .tablerow{
+    border: 1px solid black;
+  }
+  clear: left;
+  .editablerow .ant-form-item-explain{
+    position: absolute;
+    top: 100%;
+    font-size: 12px;
+  }
+  .rili {
+    width: 300px;
+    border: 1px solid #f0f0f0;
+    border-radius: 2px;
+    position: relative;
+    top: -680px;
+    left: 10px;
+  }
+  
+}
+.dateContainer{
+  display: flex;
+  // flex-direction: column;
+  .btn{
+    display: flex;
+    flex-direction: column;
+  }
+}
+.animate{
+  visibility: 0;
+  height: 0;
+  opacity: 0;
+}
+.active{
+  .cancel{
+    right: 150px;
+    bottom: 40px;
+    position: absolute;
+  }
+  display: flex;
+  position: relative;
+  // justify-content: space-between;
+  justify-content: space-evenly;
+  opacity: 1;
+  transition: 2s;
+  visibility: 1;
+  height: 50px;
+}
+.college_form{
+  height: 30vh;
+}
+:global{
+  .college_form{
+    height: 44vh;
+    overflow: scroll;
+    
+  }
+}

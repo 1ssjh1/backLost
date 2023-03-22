@@ -1,0 +1,37 @@
+.addoneContainer {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-evenly;
+
+  // padding: 24px;
+  // clear: left;
+  .uploader {
+    width: 128px;
+    height: 128px;
+  }
+  .showPic{
+    float: right;
+  }
+  .ImgContainer{
+    .NoShowImg{
+      display: none;
+    }
+    
+  }
+  
+  
+}
+:global{
+  .ant-form-item-has-feedback.ant-form-item-has-success .ant-form-item-children-icon, .ant-form-item-has-feedback.ant-form-item-has-warning .ant-form-item-children-icon, .ant-form-item-has-feedback.ant-form-item-has-error .ant-form-item-children-icon, .ant-form-item-has-feedback.ant-form-item-is-validating .ant-form-item-children-icon{
+    right:-140px;
+  }
+}
+@media screen and (max-width:750px) {
+  :global{
+    .ant-form-item-has-feedback.ant-form-item-has-success .ant-form-item-children-icon, .ant-form-item-has-feedback.ant-form-item-has-warning .ant-form-item-children-icon, .ant-form-item-has-feedback.ant-form-item-has-error .ant-form-item-children-icon, .ant-form-item-has-feedback.ant-form-item-is-validating .ant-form-item-children-icon{
+      right:0!important;
+    }
+  }
+}
+
+

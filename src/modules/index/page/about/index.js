@@ -1,18 +1,18 @@
 //关于我们界面
 import React from "react";
-import { withRouter } from "react-router";
+import { useNavigate } from "react-router";
 import { connect } from "react-redux";
 import { Typography, PageHeader, Row, Col, Image } from "antd";
 import { MenuFoldOutlined } from "@ant-design/icons";
 import style from "./index.module.less";
 import weUrl from "../../../assets/image/logo-eac3f9c718.png";
 import loseUrl from "../../../assets/image/losePic.png";
-
+import withRouter from "../../../../util/useWithRouter";
 const AboutUs = (props) => {
   const { Paragraph, Title, Text } = Typography;
-
+  
   return (
-    <div className={style.aboutContainer} key={props.location.key}>
+    <div className={style.aboutContainer} >
       <PageHeader
         style={{ border: " 1px solid rgb(235, 237, 240)" }}
         backIcon={<MenuFoldOutlined />}

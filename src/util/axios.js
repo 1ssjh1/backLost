@@ -9,6 +9,9 @@ import { useNetwork } from "./useNetwork";
 import { message, Alert, Button, notification, Modal, Space } from "antd";
 
 axios.defaults.timeout = 30000;
+// axios.defaults.baseURL = "http://116.62.13.6:8085/";
+// http://172.20.2.43/lost/#/
+// axios.defaults.baseURL = "https://we.cqupt.edu.cn/lostFound/api/";
 
 axios.defaults.baseURL = "https://we.cqupt.edu.cn/api";
 // https://we.cqupt.edu.cn/api

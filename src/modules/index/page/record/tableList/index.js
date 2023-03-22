@@ -26,8 +26,8 @@ import {
 import { connect } from "react-redux";
 import style from "./index.module.less";
 import { UpOutlined, DownOutlined, CloseOutlined } from "@ant-design/icons";
-import { useHistory, Redirect, withRouter } from "react-router-dom";
-import { Prompt } from "react-router";
+import {  Redirect, withRouter } from "react-router-dom";
+import { Prompt, useNavigate } from "react-router";
 
 // import Checkbox from "antd/lib/checkbox/Checkbox";
 import moment from "moment";
@@ -1122,7 +1122,8 @@ const Tables = (props) => {
   }
 
   //判断登录是否过去弹窗
-  const history = useHistory();
+  // const history = useHistory();
+  const navigate = useNavigate()
   useEffect(() => {
     // Info()
     if (member.loginFlag) {
@@ -1130,7 +1131,7 @@ const Tables = (props) => {
       memberDispatch.changethevisibal(false);
       // history.push("/")
       // console.log(history.push);
-      props.history.push("/");
+      navigate("/");
     }
   }, [member.loginFlag]);
   const Jumpmessage = () => {
@@ -1165,7 +1166,7 @@ const Tables = (props) => {
           bordered
           rowClassName={style.tablerow}
           rowKey={(record) => record.key}
-          rowClassName={style.editablerow}
+          // rowClassName={style.editablerow}
           components={{
             body: {
               cell: EditableCell,
@@ -1206,7 +1207,7 @@ const Tables = (props) => {
       {/* 一键导出功能 */}
 
       <div
-        className={style.canvasContainer}
+        // className={style.canvasContainer}
         id="node_other"
         className={pagelist.showCanvas ? style.canvasContainer : style.none}
         align="center"
@@ -1220,7 +1221,7 @@ const Tables = (props) => {
         ></canvas>
       </div>
       <div
-        className={style.canvasContainer}
+        // className={style.canvasContainer}
         id="node_card"
         className={
           pagelist.showCanvas_card ? style.canvasContainer : style.none

@@ -1,27 +1,34 @@
 //失物记录界面
 import React, { useState } from "react";
-import { withRouter, useHistory } from "react-router";
+import { useLocation, useNavigate, withRouter } from "react-router";
 import { connect } from "react-redux";
-import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes, Link } from "react-router-dom";
 import { PageHeader, Button, Input, message, Tabs } from "antd";
 import TableList from "./tableList";
 import PicData from "./picdata";
 import style from "./index.module.less";
 const { Search } = Input;
 const LostRecord = (props) => {
-  const history = useHistory();
+  // const history = useHistory();
+  const navigate = useNavigate()
   const { selectItem, setSelectItem } = props;
-  let hisroute = props.history.location.pathname;
+  const location = useLocation()
+  const locations = location.pathname.split('/')
+  // console.log('aa',location.pathname);
+  let hisroute = `/${locations[2]}/${locations[3]}`;
+  // console.log(hisroute);
   //头顶部分
   const TopContent = (props) => {
     //用来后面判断在那个页面并加粗；
 
-    const hitory = useHistory();
+    // const hitory = useHistory();
+    const navigate = useNavigate()
     //跳转新增失物,需要改变边侧栏状态
 
     const handleToadd = () => {
       setSelectItem("add");
-      hitory.push("/index/add");
+      // hitory.push("/index/add");
+      navigate('/lost/index/add')
     };
 
     //一键导出
@@ -421,7 +428,7 @@ const LostRecord = (props) => {
                   ? style.present_Input
                   : style.Input
               }
-              to="/index/record/showList"
+              to="/lost/index/record/showList"
             >
               列表显示
             </Link>,
@@ -433,7 +440,7 @@ const LostRecord = (props) => {
                   ? style.present_Input
                   : style.Input
               }
-              to="/index/record/showPic"
+              to="/lost/index/record/showPic"
             >
               图表数据
             </Link>,
@@ -471,11 +478,11 @@ const LostRecord = (props) => {
       />
       <div>
         {/* <Router>  */}
-        <Switch>
-          <Route path="/index/record" exact component={TableList} />
-          <Route path="/index/record/showList" component={TableList} />
-          <Route path="/index/record/showPic" component={PicData} />
-        </Switch>
+        <Routes>
+          <Route path="/" exact component={TableList} />
+          <Route path="showList" component={TableList} />
+          <Route path="showPic" component={PicData} />
+        </Routes>
         {/* </Router> */}
       </div>
     </div>

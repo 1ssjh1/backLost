@@ -15,17 +15,18 @@ import {
   Modal,
 } from "antd";
 import { MenuFoldOutlined } from "@ant-design/icons";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Approve = (props) => {
   const { approveDispatch, approveList } = props;
-  const history = useHistory();
+  // const history = useHistory();
+  const navigate = useNavigate()
   useEffect(() => {
     // Info()
     if (approveList.loginFlag) {
       approveDispatch.changeloginFlag(false);
       approveDispatch.changethevisibal(false);
-      history.push("/");
+      navigate("/");
     }
     //
   }, [approveList.loginFlag]);

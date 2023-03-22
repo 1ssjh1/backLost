@@ -5,7 +5,7 @@
  */
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Form, Input, Button, Checkbox, message, Row, Col, Image } from "antd";
 import style from "./index.module.less";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
@@ -20,7 +20,8 @@ const tailLayout = {
 };
 
 const Login = (props) => {
-  const history = useHistory();
+  // const history = useHistory();
+  const navigate = useNavigate()
   const { loginDispatch } = props;
 
 
@@ -28,7 +29,7 @@ const Login = (props) => {
   useEffect(() => {
     if (props.loginFlag == "操作成功") {
       loginDispatch.saveflag("");
-      history.push("/index/record");
+      navigate("/index/record");
     }
   });
 

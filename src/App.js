@@ -8,7 +8,7 @@ import './App.css';
 
 import { Provider } from 'react-redux';
 // import { Switch, BrowserRouter as Router, Route } from 'react-router-dom'
-import { Switch, HashRouter as Router, Route } from 'react-router-dom'
+import { Routes, HashRouter as Router, Route } from 'react-router-dom'
 import store from './models/index.tsx'
 import loadable from '@loadable/component'
 // 异步加载
@@ -23,15 +23,18 @@ const Wait = loadable(() => import('./modules/wait'))
 function App() {
   return (
     <Provider store={store}>
-      <Router basename='/lost/' >
-        <Switch>
+      <Router>
+        <Routes>
           {/* {renderRender(mainRouters)} */}
-
-          <Route path="/index" component={Index} />
+          <Route path="/" element={<Index />} />
+          <Route path='lost'>
+            <Route path="index/*" index element={<Index />} />
+            <Route path="wait" element={<Wait />} />
           {/* <Route path="/register" component={register} />
           <Route path="/wait" component={Wait} />
           <Route path="/" exact component={Index} /> */}
-        </Switch>
+          </Route>
+        </Routes>
       </Router>
     </Provider>
   );

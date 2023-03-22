@@ -7,7 +7,7 @@
 import React, {useState,useEffect} from 'react'
 import { Menu,Avatar,message,Modal} from 'antd';
 import {PoweroffOutlined } from '@ant-design/icons';
-import { useHistory } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import configMenu from "./config";
 import memberconfigMenu from "./memberconfig";
 import style from "./index.module.less";
@@ -16,8 +16,10 @@ const { SubMenu } = Menu;
 const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
 
 const Sider = (props) => {
-  const history = useHistory()
-
+  console.log(props);
+  // const history = useHistory()
+  const navigate = useNavigate()
+  const location = useLocation()
   const {selectItem,setSelectItem,changeShow} = props
  
   const renderSide = (optionSide) => {
@@ -45,7 +47,7 @@ const Sider = (props) => {
       changeShow(true)
     }
     setSelectItem(e.key)
-    history.push(`/index/${e.key}`)
+    navigate(`/lost/index/${e.key}`)
   };
 
   useEffect(()=>{
@@ -75,7 +77,7 @@ const Sider = (props) => {
         onCancel={handleCancel}
         onOk={() => {
           props.userController.changeloginFlag(true)
-          history.push('/')
+          navigate('/')
 
         }}
       >
@@ -89,7 +91,8 @@ const Sider = (props) => {
   const [selects,getSelcet] = useState('record')
    
   useEffect(()=>{
-    const start_url = history.location.pathname;
+    
+    const start_url = location.pathname;
     var b = start_url.substr(start_url.lastIndexOf("/") + 1);
     setSelectItem(b)
     // alert(/[^\\]+$/.exec(window.location.href))

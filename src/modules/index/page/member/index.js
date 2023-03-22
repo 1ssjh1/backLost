@@ -1,25 +1,27 @@
 //成员列表界面
 import React, { useEffect } from "react";
-import { withRouter } from "react-router";
+import { useNavigate } from "react-router";
+import withRouter from "../../../../util/useWithRouter";
 import { connect } from "react-redux";
 import { Button, Form, Tag, Radio, Pagination, Modal, Table, PageHeader, Input, Space,Popconfirm, message } from 'antd';
 import {
   MenuFoldOutlined
 } from '@ant-design/icons';
-import { useHistory } from 'react-router-dom'
+import {  } from 'react-router-dom'
 import style from "./index.module.less";
 // import { info } from "console";
 const TeamMember = (props) => {
   const { memberDispatch, member } = props
   const { Search } = Input
-  const history = useHistory()
+  // const history = useHistory()
+  const navigate = useNavigate()
   
   useEffect(()=>{
     // Info()
     if(member.loginFlag){
       memberDispatch.changeloginFlag(false);
       memberDispatch.changethevisibal(false);
-      history.push("/")
+      navigate("/")
     }
   },[member.loginFlag])
   // useEffect(() => {

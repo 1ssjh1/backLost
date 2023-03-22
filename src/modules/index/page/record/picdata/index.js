@@ -1,6 +1,6 @@
 import ReactEcharts from 'echarts-for-react';
 import React, { useEffect } from "react";
-import { withRouter } from "react-router";
+import withRouter from '../../../../../util/useWithRouter';
 import { connect } from "react-redux";
 import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/chart/line';

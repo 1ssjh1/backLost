@@ -5,10 +5,11 @@ import { connect } from "react-redux";
 import { Button, message } from "antd";
 import style from "./index.module.less";
 import { deleteStorage } from "../../../../util/index";
+import { useNavigate } from "react-router";
 
 const Exit = (props) => {
   const { userControllerDispatch } = props;
-
+  const navigate = useNavigate()
   const handleClick = () => {
     deleteStorage("token");
     message.success({
@@ -16,7 +17,7 @@ const Exit = (props) => {
       duration: 1,
       onClose: () => {
         // props.history.replace("/");
-        props.history.push("/")
+        navigate("/")
       },
       style: {
         marginTop: "10rem",
@@ -25,7 +26,7 @@ const Exit = (props) => {
   };
 
   return (
-    <div className={style.container} key={props.location.key}>
+    <div className={style.container} >
       <div className={style.wrap}>
         <h1>是否确认退出登录!</h1>
         <br />

@@ -11,11 +11,12 @@ import {
   Route,
   // BrowserRouter as Router,
   HashRouter as Router,
-  Switch,
-  withRouter,
+  Routes,
+  useNavigate,
+  Outlet,
 } from "react-router-dom";
 import Sider from "./component/Sider";
-import { useHistory } from "react-router-dom";
+import {  } from "react-router-dom";
 import ApproveContainer from "./page/approve";
 import About from "./page/about";
 import Add from "./page/add";
@@ -30,7 +31,8 @@ const { Header, Content } = Layout;
 
 const Index = (props) => {
   //判断网络状态
-  const history = useHistory()
+  // const history = useHistory()
+  const navigate = useNavigate()
   const [netStatus, setNetStatus] = useState(window.navigator.onLine);
   const updateNetStatus = () => {
     setNetStatus(window.navigator.onLine);
@@ -50,7 +52,7 @@ const Index = (props) => {
         title: 'error',
         content: '请检查网络是否连接',
         afterClose:()=>{
-          history.push('/')
+          navigate('/')
         }
       });
     }
@@ -70,19 +72,20 @@ const Index = (props) => {
           <Layout>
             <div className={style.switch}>
               {/* <Router> */}
-              <Switch
+              <Routes
                 className={style.switch}
                 style={{ padding: "0 24px 24px" }}
               >
-                <Route path="/index/about" component={About} />
-                <Route path="/index/add" component={Add} />
-                <Route path="/index/exit" component={Exit} />
-                <Route path="/index/information" component={Information} />
-                <Route path="/index/member" component={Member} />
+                <Route path="about" element={<About />} />
+                <Route path="add/*" element={<Add />} />
+                <Route path="exit/*" element={<Exit />} />
+                <Route path="information/*" element={<Information />} />
+                <Route path="member/*" element={<Member />} />
 
-                <Route path="/index/approve" component={ApproveContainer} />
-                <Route path="/index/record" component={Record} />
-              </Switch>
+                <Route path="approve/*" element={<ApproveContainer />} />
+                <Route path="record/*" element={<Record />} />
+              </Routes>
+              {/* <Outlet /> */}
               {/* </Router> */}
             </div>
           </Layout>

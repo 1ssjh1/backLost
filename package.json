@@ -1,10 +1,10 @@
 {
   "name": "form_cli",
   "version": "0.1.0",
-  "proxy":"https://we.cqupt.edu.cn/lostFound/api ", 
+  "proxy": "https://we.cqupt.edu.cn",
   "private": true,
   "homepage": "https://www.we.cqupt.edu.cn/lost/",
-  "dependencies": { 
+  "dependencies": {
     "@babel/core": "7.12.3",
     "@loadable/component": "^5.14.1",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.2",
@@ -186,5 +186,4 @@
       "react-app"
     ]
   }
-
 }
